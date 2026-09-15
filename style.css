@@ -1,12 +1,34 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
-    padding: 20px;
-    line-height: 1.6;
+/* ==========================================
+   УНИВЕРСАЛЬНЫЙ АДАПТИВНЫЙ КОД ДЛЯ МОБИЛЬНЫХ
+   ========================================== */
+
+/* 1. Запрещаем элементам вылезать за рамки экрана */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* Убирает горизонтальную прокрутку, если что-то поплыло */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h1 {
-    color: #0d6efd; /* Красивый синий цвет для заголовка */
-    border-bottom: 2px solid #0d6efd;
-    padding-bottom: 10px;
+
+/* 2. Делаем все картинки, фото и логотипы гибкими */
+img, svg, picture {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* 3. Лечим контейнеры, если где-то в CSS была жесткая ширина */
+.container, [class*="max-w-"] {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* 4. Настройка под экраны телефонов (работает автоматически) */
+@media (max-width: 768px) {
+    /* Если у вас где-то в CSS были жесткие пиксели (например, 1200px или 800px), 
+       этот блок сбросит их на телефоне, чтобы сайт не сжимался */
+    div, section, header, main, footer {
+        max-width: 100% !important;
+    }
 }
